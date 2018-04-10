@@ -6,11 +6,12 @@ html,body {
 body {
     display: grid;
     grid-template-rows: 64px 1fr;
-    grid-template-columns: 1fr;
+    grid-template-columns: 150px 1fr;
+    grid-template-areas:"header header"
+                        "section section";
 }
 header {
-    grid-column: 1 / -1;
-    grid-row: 1 / 2;
+    grid-area: header;
     background-color: #ffbb00;
     display: flex;
     justify-content: space-between;
@@ -38,8 +39,7 @@ header {
     outline: none;
 }
 .content {
-    grid-column: 1 / -1;
-    grid-row: 2 / -1;
+    grid-area: section;
     display: grid;
     padding: 25px;
     grid-template-rows: 46px repeat(auto-fill,minmax(120px,1fr)) ;
@@ -70,7 +70,24 @@ header {
 }
 .navigation {
     display: none;
+      
 }
+
+
+.navigation-show{
+    grid-column: 1 / 2;
+    grid-row: 2 / -1;
+    display: flex;
+    flex-direction: column;
+}
+
+.body-modificado{
+
+    grid-template-areas:"header header"
+    "nav section";
+
+}
+
 
 @media (min-width:768px){
 body {
