@@ -2,44 +2,32 @@ clicknumber = true;
 
 var body = document.getElementsByTagName("body")[0];
 var navigation = document.getElementsByClassName("navigation")[0];
-var div = document.getElementsByClassName("div-empty")[0];
+var div = document.getElementById("div-shadow");
 var menubutton = document.getElementById("menu-button");
+var content = document.getElementsByClassName("content")[0];
 
+console.log(div);
 
 function showmenu(){
   if(window.innerWidth<768){
-    body.classList.toggle("body-modificado");
+    div.classList.toggle("div-shadow-open");
     navigation.classList.toggle("navigation-show");
-    navigation.style.zIndex=1;    
-    div.style.backgroundColor="#454444b7";
-
-    if(clicknumber){
-      div.style.zIndex = 2;
-      clicknumber=false;
-    }
-
-    else{
-      div.style.zIndex=-9999;
-      clicknumber=true;
-    }
+    
   }
 
-    
 }
 
 
-  function divhidden(){
-
+  function shadowfunct(){
+    console.log("shadow");
     if(window.innerWidth<768){
-      body.classList.remove("body-modificado");
-      navigation.classList.remove("navigation-show");
-      div.style.zIndex = -999;
-      clicknumber = true;
+      
+      navigation.classList.toggle("navigation-show");
+      div.classList.toggle("div-shadow-open");
+      
+
     }
-    
-
   }
-
 
 
 
