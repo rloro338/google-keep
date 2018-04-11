@@ -46,6 +46,7 @@ header {
     grid-template-columns: repeat(auto-fill,minmax(240px,1fr)) ;
     grid-gap: 10px 20px;
 }
+
 .searcher-content {
     grid-row: 1 / 2;
     grid-column: 1 / -1;
@@ -70,7 +71,7 @@ header {
 }
 .navigation {
     display: none;
-      
+   
 }
 
 
@@ -85,7 +86,13 @@ header {
 
     grid-template-areas:"header header"
     "nav section";
+}
 
+.div-empty{
+    display: grid;
+    grid-area: section;
+    padding: 25px;
+    
 }
 
 
