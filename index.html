@@ -7,13 +7,15 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
+	<script src="functions.js"></script>
+
 	
 </head>
 
-<body>
+<body onload="behaviourFunction()">
 	<header>
 		<a href="#">
-			<i class="material-icons md-36" onclick="showmenu()">menu</i>
+			<i class="material-icons md-36" id="menuButton">menu</i>
 		</a>
 		<h1 class="title"><span>Google</span>Keep</h1>
 		<input type="text" name="searcher" class="searcher-header" placeholder="Busca lo que quieras">
@@ -82,9 +84,12 @@
 			<p>Combinaciones de teclas</p>
 		</a>
 	</nav>
-	<div class="div-shadow" id="div-shadow" onclick="shadowfunct()"></div>
-	<section class="content" onclick="shadowfunct()">
-		<input type="text" name="" class="searcher-content" placeholder="Tomar una nota..." >
+	<div class="div-shadow" id="div-shadow"></div>
+	<section class="content">
+		<div class="searcher-content" >
+			<input type="text" class="inputText" placeholder="Tomar una nota..." >
+			<button type="button" id="newNoteButton" disabled="true">Enviar</button>
+		</div>	
 		<div class="content-notes">
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 		</div>
@@ -107,5 +112,5 @@
 </body>
 </html>
 </body>
-<script src="functions.js"></script>
+<script src="functionNotes.js"></script>
 </html>

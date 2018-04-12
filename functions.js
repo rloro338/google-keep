@@ -1,27 +1,28 @@
-clicknumber = true;
+function behaviourFunction(){
 
-var body = document.getElementsByTagName("body")[0];
-var navigation = document.getElementsByClassName("navigation")[0];
-var div = document.getElementById("div-shadow");
-var menubutton = document.getElementById("menu-button");
-var content = document.getElementsByClassName("content")[0];
+  var navigation = document.getElementsByClassName("navigation")[0];
+  var div = document.getElementById("div-shadow");
+  var menuButton = document.getElementById("menuButton");
 
-function showmenu(){
-  if(window.innerWidth<768){
-    div.classList.toggle("div-shadow-open");
-    navigation.classList.toggle("navigation-show");  
-  }
-}
-  function shadowfunct(){
-    console.log("shadow");
+  div.addEventListener("click",putShadow);
+  menuButton.addEventListener("click", showMenu);
+
+  function showMenu(){
     if(window.innerWidth<768){
-      
-      navigation.classList.toggle("navigation-show");
       div.classList.toggle("div-shadow-open");
-      
-
+      navigation.classList.toggle("navigation-show");  
     }
   }
+
+  function putShadow(){
+    if(window.innerWidth<768){
+        
+      navigation.classList.toggle("navigation-show");
+      div.classList.toggle("div-shadow-open");     
+
+      }
+    }
+}
 
 
 

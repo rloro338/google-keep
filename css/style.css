@@ -73,9 +73,13 @@ header div.visible-s{
   grid-row: 1 / 2;
   grid-column: 1 / -1;
   border: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   box-shadow: 0.2px 1px 5px gray;
   outline: none;
   padding: 5px;
+  
 }
 .content-notes {
   padding: 10px;
@@ -131,6 +135,14 @@ header div.visible-s{
   margin: 10px;
   color: rgb(58, 50, 46);
 }
+
+.searcher-content input{
+  width: 80%;
+  border: none;
+  height: 90%;
+  min-width: 200px;
+}
+
 @media(min-width:400px){
   .title span {
       display: inline;
