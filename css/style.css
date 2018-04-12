@@ -75,7 +75,7 @@ header div.visible-s{
   border: none;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   box-shadow: 0.2px 1px 5px gray;
   outline: none;
   padding: 5px;
@@ -139,15 +139,45 @@ header div.visible-s{
   margin: 10px;
   color: rgb(58, 50, 46);
 }
-.searcher-content input{
-  width: 80%;
+
+.searcher-content{
+  min-width: fit-content;
+}
+
+
+input.inputText{
+  width:70% ;
   border: none;
   height: 90%;
   min-width: 200px;
+  padding-left: 10px;
 }
 
-.content input{
-  padding-left: 10px;
+div.select-color {
+  display:flex;
+  flex-direction:row;
+  margin: 5px;   
+}
+
+div.select-color input{
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
+}
+
+
+input#white.radio-color{
+  background-color:white;
+  
+}
+input#red.radio-color{
+  background-color:red;
+}
+input#yellow.radio-color{
+  background-color:yellowgreen;
+}
+input#blue.radio-color{
+  background-color:blue;
 }
 
 @media(min-width:400px){
