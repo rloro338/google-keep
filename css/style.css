@@ -2,6 +2,7 @@ html,body {
   width:100%;
   height: 100%;
   margin: 0;
+  min-width: 350px;
 }
 body {
   display: grid;
@@ -18,6 +19,8 @@ header {
   align-items: center;
   padding: 10px;
 }
+
+
 .title {
   font-family: 'Product Sans',Arial,sans-serif;
   font-size: 22px;
@@ -25,15 +28,25 @@ header {
 }
 .title span {
   font-weight: bolder;
+  display: none
 }
 .searcher-header{
+  display: none;
+  visibility: hidden;
   border: none;
   background-color: rgba(136, 132, 132, 0.178);
   height: 100%;
   width: 35%;
   border-radius: 3px;
   padding-left: 35px;
+  min-width: 100px;
 }
+
+header div.visible-s{
+  display: none;
+  visibility: hidden;
+}
+
 .searcher-header:focus{
   background-color: white;
   outline: none;
@@ -114,10 +127,20 @@ header {
   transition: margin-left 2s ease;
   z-index:3;
 }
-.div-empty{
-  display: grid;
-  grid-area: section;
-  padding: 25px;  
+.material-icons{
+  margin: 10px;
+  color: rgb(58, 50, 46);
+}
+@media(min-width:400px){
+  .title span {
+      display: inline;
+  }
+}
+@media(min-width: 560px){
+  .searcher-header{
+    display: flex;
+    visibility: visible;
+  }
 }
 @media (min-width:768px){
   body {    
@@ -135,4 +158,16 @@ header {
   .content {
     grid-area: section;
   }
+  .div-shadow {
+    z-index:-5;
+  }
+
+  .searcher-header{
+    display: flex;
+    visibility: visible;
+  }
+   header div.visible-s{
+     display: flex;
+     visibility: visible;
+   }
 }
