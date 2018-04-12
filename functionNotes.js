@@ -5,17 +5,18 @@ var input = document.getElementsByClassName("inputText")[0];
 
 
 newNoteButton.addEventListener("click",makeNewNote);
-input.addEventListener("input", ()=>{
-                                      if(input.value==""){
-                                        newNoteButton.disabled=true;
-                                      }
-                                      else{
-                                        newNoteButton.disabled=false;
-                                      };
-                                      });
+input.addEventListener("input", checkInput);
+
+function checkInput(){
+  if(input.value==""){
+    newNoteButton.disabled=true;
+    }
+  else{
+    newNoteButton.disabled=false;
+    }
+}  
 
 function makeNewNote(){
-   
     var div = document.createElement("div");
     var p = document.createElement("p");
     var noteContent = document.createTextNode(input.value);
@@ -23,7 +24,9 @@ function makeNewNote(){
     div.appendChild(p);
     div.classList.add("content-notes");
     content.appendChild(div);
-  }
-
+    input.value="";
+    newNoteButton.disabled=true;
+    console.log(div);
+}
 
 

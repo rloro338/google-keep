@@ -55,7 +55,7 @@ header div.visible-s{
   grid-area: section;
   display: grid;
   padding: 25px;
-  grid-template-rows: 46px repeat(auto-fill,minmax(120px,1fr)) ;
+  grid-template-rows: 50px 1fr;
   grid-template-columns: repeat(auto-fill,minmax(240px,1fr)) ;
   grid-gap: 10px 20px;   
 }
@@ -79,17 +79,21 @@ header div.visible-s{
   box-shadow: 0.2px 1px 5px gray;
   outline: none;
   padding: 5px;
+  height: 40px;
   
 }
 .content-notes {
   padding: 10px;
   background-color: white;
   box-shadow: 2px 2px 5px gray;
+  height: fit-content
 }
-.content-notes>p {
+.content-notes > p {
   font-family: 'Patrick Hand', cursive;
   font-size: 21px;
   font-weight: 500px;
+  word-wrap: break-word;
+  
 }
 .content, .navigation {
   background-color: #e8e8e8;
@@ -135,12 +139,15 @@ header div.visible-s{
   margin: 10px;
   color: rgb(58, 50, 46);
 }
-
 .searcher-content input{
   width: 80%;
   border: none;
   height: 90%;
   min-width: 200px;
+}
+
+.content input{
+  padding-left: 10px;
 }
 
 @media(min-width:400px){

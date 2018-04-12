@@ -1,3 +1,4 @@
+
 function behaviourFunction(){
 
   var navigation = document.getElementsByClassName("navigation")[0];
