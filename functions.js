@@ -6,18 +6,12 @@ var div = document.getElementById("div-shadow");
 var menubutton = document.getElementById("menu-button");
 var content = document.getElementsByClassName("content")[0];
 
-console.log(div);
-
 function showmenu(){
   if(window.innerWidth<768){
     div.classList.toggle("div-shadow-open");
-    navigation.classList.toggle("navigation-show");
-    
+    navigation.classList.toggle("navigation-show");  
   }
-
 }
-
-
   function shadowfunct(){
     console.log("shadow");
     if(window.innerWidth<768){
