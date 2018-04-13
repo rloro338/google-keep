@@ -39,7 +39,7 @@ header {
   padding-left: 35px;
   min-width: 100px;
 }
-header div.visible-s{
+header div.buttons-visible-s{
   display: none;
   visibility: hidden;
 }
@@ -51,10 +51,19 @@ header div.visible-s{
   grid-area: section;
   display: grid;
   padding: 25px;
-  grid-template-rows: fit-content 1fr;
-  grid-template-columns: repeat(auto-fill,minmax(240px,1fr)) ;
+  grid-template-rows: 80px 1fr;
+  grid-template-columns: 1fr;
+  grid-template-areas: "searcher"
+                       "containerNotes";
   grid-gap: 10px 20px;   
 }
+.content-notes-container{
+  grid-area: containerNotes;
+  display:grid;
+  grid-auto-rows: min-content;
+  grid-template-columns: repeat(auto-fill,minmax(240px,1fr)) ;
+  grid-gap: 5px;
+  }
 .div-shadow-open {
   grid-area: section;
   display: grid;
@@ -66,8 +75,7 @@ header div.visible-s{
   z-index:-5;
 }
 .searcher-content {
-  grid-row: 1 / 2;
-  grid-column: 1 / -1;
+  grid-area: searcher;
   border: none;
   display: flex;
   flex-direction: row;
@@ -129,7 +137,7 @@ header div.visible-s{
   transition: margin-left 2s ease;
   z-index:3;
 }
-.material-icons{
+header .material-icons{
   margin: 10px;
   color: rgb(58, 50, 46);
 }
@@ -168,6 +176,8 @@ div.select-color input{
   width: 20px;
   height: 20px;
 }
+
+
 @media(min-width:400px){
   .title span {
       display: inline;
@@ -202,7 +212,7 @@ div.select-color input{
     display: flex;
     visibility: visible;
   }
-   header div.visible-s{
+   header div.buttons-visible-s{
      display: flex;
      visibility: visible;
    }

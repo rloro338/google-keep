@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<script src="functions.js"></script>
 
-	
+
 </head>
 
 <body onload="behaviourFunction()">
@@ -17,9 +17,10 @@
 		<a href="#">
 			<i class="material-icons md-36" id="menuButton">menu</i>
 		</a>
-		<h1 class="title"><span>Google</span>Keep</h1>
+		<h1 class="title">
+			<span>Google</span>Keep</h1>
 		<input type="text" name="searcher" class="searcher-header" placeholder="Busca lo que quieras">
-		<div class="visible-s">
+		<div class="buttons-visible-s">
 			<a href="#">
 				<i class="material-icons md-36">update</i>
 			</a>
@@ -27,44 +28,44 @@
 				<i class="material-icons md-36">view_agenda</i>
 			</a>
 		</div>
-		<div class="visible-xs">
-				<a href="#">
-					<i class="material-icons md-36">apps</i>	
-				</a>
-				<a href="#">
-						<i class="material-icons md-36">notifications_none</i>
-				</a>
-				<a href="#">
-						<i class="material-icons md-36">tag_faces</i>
-				</a>
+		<div class="buttons-visible-xs">
+			<a href="#">
+				<i class="material-icons md-36">apps</i>
+			</a>
+			<a href="#">
+				<i class="material-icons md-36">notifications_none</i>
+			</a>
+			<a href="#">
+				<i class="material-icons md-36">tag_faces</i>
+			</a>
 		</div>
 	</header>
 	<nav class="navigation">
 		<a href="#" class="navigation-items">
-			
+
 			<p>Notas</p>
 		</a>
 		<a href="#" class="navigation-items navigation-items-separator">
-			
+
 			<p>Recordatorios</p>
 		</a>
-		
+
 		<a href="#" class="navigation-items navigation-items-separator">
-			
+
 			<p>Crear etiqueta</p>
 		</a>
-		
+
 		<a href="#" class="navigation-items">
-			
+
 			<p>Archivo</p>
 		</a>
 		<a href="#" class="navigation-items navigation-items-separator">
-			
+
 			<p>Papelera</p>
 		</a>
-		
+
 		<a href="#" class="navigation-items">
-			
+
 			<p>Ajustes</p>
 		</a>
 		<a href="#" class="navigation-items">
@@ -86,25 +87,32 @@
 	</nav>
 	<div class="div-shadow" id="div-shadow"></div>
 	<section class="content">
-		<div class="searcher-content" >
+		<div class="searcher-content">
 			<div class="searcher-item">
 				<input type="text" class="inputText" placeholder="Tomar una nota...">
-				<button type="button" class="new-note-button" disabled="true">Enviar</button>
+				<button type="button" class="new-note-button" disabled="true">
+					<i class="material-icons md-36 ">add</i>
+				</button>
+				<!--<button type="button" class="new-note-button" disabled="true">Enviar</button>-->
 			</div>
 			<div class="select-color-hidden select-color searcher-item">
 				<input type="radio" name="color" class="radio-color" value="white">
 				<label>Blanco</label>
-				<input type="radio" name="color" class="radio-color"  value="red">
+				<input type="radio" name="color" class="radio-color" value="red">
 				<label>Rojo</label>
-				<input type="radio" name="color" class="radio-color"  value="yellow">
+				<input type="radio" name="color" class="radio-color" value="yellow">
 				<label>Amarillo</label>
-				<input type="radio" name="color" class="radio-color"  value="blue">
+				<input type="radio" name="color" class="radio-color" value="blue">
 				<label>Azul</label>
+			</div>
 		</div>
-		</div>	
+		<div class="content-notes-container">
+		</div>
 	</section>
 </body>
+
 </html>
 </body>
 <script src="functionNotes.js"></script>
+
 </html>
