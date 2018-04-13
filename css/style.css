@@ -19,8 +19,6 @@ header {
   align-items: center;
   padding: 10px;
 }
-
-
 .title {
   font-family: 'Product Sans',Arial,sans-serif;
   font-size: 22px;
@@ -41,12 +39,10 @@ header {
   padding-left: 35px;
   min-width: 100px;
 }
-
 header div.visible-s{
   display: none;
   visibility: hidden;
 }
-
 .searcher-header:focus{
   background-color: white;
   outline: none;
@@ -55,7 +51,7 @@ header div.visible-s{
   grid-area: section;
   display: grid;
   padding: 25px;
-  grid-template-rows: 50px 1fr;
+  grid-template-rows: fit-content 1fr;
   grid-template-columns: repeat(auto-fill,minmax(240px,1fr)) ;
   grid-gap: 10px 20px;   
 }
@@ -80,20 +76,18 @@ header div.visible-s{
   outline: none;
   padding: 5px;
   height: 40px;
-  
 }
 .content-notes {
   padding: 10px;
   background-color: white;
   box-shadow: 2px 2px 5px gray;
-  height: fit-content
+  height: fit-content;
 }
 .content-notes > p {
   font-family: 'Patrick Hand', cursive;
   font-size: 21px;
   font-weight: 500px;
   word-wrap: break-word;
-  
 }
 .content, .navigation {
   background-color: #e8e8e8;
@@ -139,47 +133,41 @@ header div.visible-s{
   margin: 10px;
   color: rgb(58, 50, 46);
 }
-
 .searcher-content{
-  min-width: fit-content;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
 }
-
-
+.searcher-item{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 input.inputText{
-  width:70% ;
+  width:80% ;
   border: none;
-  height: 90%;
-  min-width: 200px;
+  height: 30px;
+  min-width: 100px;
   padding-left: 10px;
 }
-
-div.select-color {
+div.select-color, div.select-color-hidden {
   display:flex;
-  flex-direction:row;
-  margin: 5px;   
+  flex-direction: row;
+  justify-content: center;
+  margin: 5px;
+  padding: 0;
 }
-
+div.select-color-hidden{
+  display: none;
+}
 div.select-color input{
   width: 20px;
   height: 20px;
-  margin: 0 auto;
 }
-
-
-input#white.radio-color{
-  background-color:white;
-  
-}
-input#red.radio-color{
-  background-color:red;
-}
-input#yellow.radio-color{
-  background-color:yellowgreen;
-}
-input#blue.radio-color{
-  background-color:blue;
-}
-
 @media(min-width:400px){
   .title span {
       display: inline;
@@ -210,7 +198,6 @@ input#blue.radio-color{
   .div-shadow {
     z-index:-5;
   }
-
   .searcher-header{
     display: flex;
     visibility: visible;
