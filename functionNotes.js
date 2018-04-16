@@ -8,6 +8,7 @@ function behaviourSearchAndNewNote() {
   var selectColor = document.getElementsByClassName("select-color-hidden")[0];
   var searcher = document.getElementsByClassName("searcher-header")[0];
   var searchButton = document.getElementsByClassName("search-button")[0];
+  var title = document.getElementsByClassName("title")[0];
 
   newNoteButton.addEventListener("click", function (e) {
     makeNewNote(input.value)
@@ -23,14 +24,14 @@ function behaviourSearchAndNewNote() {
     searchNotes(searcher.value)
   });
 
-searchButton.addEventListener("click", openSearcher);
+  searchButton.addEventListener("click", openSearcher);
+  window.addEventListener("resize", closeSearcher);
 
   function checkInput() {
     var noSpacesRegExp = new RegExp('^[\\s]{0,}$');
-    var testResult = !noSpacesRegExp.test(input.value);
-    newNoteButton.disabled = !testResult;
-    console.log(testResult);
-    return testResult;
+    var testResult = noSpacesRegExp.test(input.value);
+    newNoteButton.disabled = testResult;
+    return !testResult;
   }
 
   function showColors() {
@@ -91,19 +92,19 @@ searchButton.addEventListener("click", openSearcher);
 
   function makeNewNoteWithIntro(e) {
     var key = e.keyCode;
-    console.log(key);
     if (key == 13 && checkInput()) {
       makeNewNote(input.value);
     }
   }
 
   function searchNotes(textToSearch) {
-    console.log(textToSearch);
     var i = 0;
     do {
       var notes = document.getElementsByClassName("content-notes");
-      var long = notes.length;
+      var lengthNotes = notes.length;
       var content = notes[i].firstChild.textContent;
+      var frase = content.slice(content.indexOf(textToSearch[0], textToSearch.length));
+      
       if (content.search(textToSearch) == -1) {
         notes[i].style.display = "none";
       }
@@ -111,16 +112,23 @@ searchButton.addEventListener("click", openSearcher);
         notes[i].style.display = "flex";
       }
       i++;
-    } while (i < long);
+    } while (i < lengthNotes);
 
   }
-
-  function openSearcher(){
-    if(window.innerWidth<650){
-      console.log('ww');
-
+  function openSearcher() {
+    if (window.innerWidth < 650) {
+      title.classList.toggle("title-hidden");
+      searcher.classList.toggle('searcher-header-mobile');
+      searcher.placeholder = "Buscar";
     }
+  }
 
+  function closeSearcher() {
+    if (window.innerWidth > 650) {
+      title.classList.remove("title-hidden");
+      searcher.classList.remove('searcher-header-mobile');
+      searcher.placeholder = "Busca lo que quieras";
+    }
   }
 }
 

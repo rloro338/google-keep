@@ -24,6 +24,10 @@ header {
   font-size: 22px;
   font-weight: 500;
 }
+.title-hidden {
+  display:none;
+  visibility: hidden;
+}
 .title span {
   font-weight: bolder;
   display: none
@@ -38,6 +42,10 @@ header {
   border-radius: 3px;
   padding-left: 35px;
   min-width: 100px;
+}
+.searcher-header-mobile{
+  display: flex;
+  visibility:visible;
 }
 header div.buttons-visible-s{
   display: none;
@@ -189,6 +197,9 @@ div.select-color input{
   height: 20px;
 }
 
+header div.buttons-visible-xs{
+  min-width: 140px;
+}
 
 @media(min-width:400px){
   .title span {
