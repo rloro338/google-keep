@@ -3,7 +3,7 @@ function behaviourFunction(){
 
   var navigation = document.getElementsByClassName("navigation")[0];
   var div = document.getElementById("div-shadow");
-  var menuButton = document.getElementById("menuButton");
+  var menuButton = document.getElementsByClassName("menuButton")[0];
 
   div.addEventListener("click",putShadow);
   menuButton.addEventListener("click", showMenu);
@@ -23,6 +23,7 @@ function behaviourFunction(){
 
       }
     }
+
 }
 
 

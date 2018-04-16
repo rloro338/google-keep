@@ -8,18 +8,21 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
 	<script src="functions.js"></script>
-
+	<script src="functionNotes.js"></script>
 
 </head>
 
-<body onload="behaviourFunction()">
+<body onload="behaviourFunction(),behaviourSearchAndNewNote()">
 	<header>
 		<a href="#">
-			<i class="material-icons md-36" id="menuButton">menu</i>
+			<i class="material-icons md-36 menuButton">menu</i>
 		</a>
 		<h1 class="title">
 			<span>Google</span>Keep</h1>
 		<input type="text" name="searcher" class="searcher-header" placeholder="Busca lo que quieras">
+		<a href="#" class="search-button">
+			<i class="material-icons md-36">search</i>
+		</a>
 		<div class="buttons-visible-s">
 			<a href="#">
 				<i class="material-icons md-36">update</i>
@@ -42,46 +45,59 @@
 	</header>
 	<nav class="navigation">
 		<a href="#" class="navigation-items">
-
+				<i class="material-icons md-36">lightbulb_outline</i>
 			<p>Notas</p>
 		</a>
+		
 		<a href="#" class="navigation-items navigation-items-separator">
-
+		<i class="material-icons md-36">touch_app</i>
 			<p>Recordatorios</p>
 		</a>
-
-		<a href="#" class="navigation-items navigation-items-separator">
+	
+		<a href="#" class="navigation-items">
 
 			<p>Crear etiqueta</p>
+			<a href="#" class="navigation-items">
+					<i class="material-icons md-36">label</i>
+						<p>Inspiracion</p>
+			</a>
+			<a href="#" class="navigation-items">
+					<i class="material-icons md-36">label</i>
+						<p>Personal</p>
+			</a>
+			<a href="#" class="navigation-items navigation-items-separator">
+					<i class="material-icons md-36">label</i>
+						<p>Trabajo</p>
+			</a>
 		</a>
 
 		<a href="#" class="navigation-items">
-
+			<i class="material-icons md-36">archive</i>
 			<p>Archivo</p>
 		</a>
 		<a href="#" class="navigation-items navigation-items-separator">
-
+			<i class="material-icons md-36">delete</i>
 			<p>Papelera</p>
 		</a>
 
 		<a href="#" class="navigation-items">
-
+			<i class="material-icons md-36">settings</i>
 			<p>Ajustes</p>
 		</a>
 		<a href="#" class="navigation-items">
-			<img src="" alt="">
+			<i class="material-icons md-36">mode_comment</i>
 			<p>Enviar comentarios</p>
 		</a>
 		<a href="#" class="navigation-items">
-			<img src="" alt="">
+			<i class="material-icons md-36">help</i>
 			<p>Ayuda</p>
 		</a>
 		<a href="#" class="navigation-items">
-			<img src="" alt="">
+			<i class="material-icons md-36">get_app</i>
 			<p>Descarga de aplicaciones</p>
 		</a>
 		<a href="#" class="navigation-items">
-			<img src="" alt="">
+			<i class="material-icons md-36">keyboard</i>
 			<p>Combinaciones de teclas</p>
 		</a>
 	</nav>
@@ -113,6 +129,6 @@
 
 </html>
 </body>
-<script src="functionNotes.js"></script>
+
 
 </html>

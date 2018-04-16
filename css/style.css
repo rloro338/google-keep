@@ -47,6 +47,15 @@ header div.buttons-visible-s{
   background-color: white;
   outline: none;
 }
+
+header .menuButton{
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+}
+header .menuButton:hover{
+  background-color: rgb(223, 175, 43);
+}
 .content {
   grid-area: section;
   display: grid;
@@ -85,6 +94,7 @@ header div.buttons-visible-s{
   padding: 5px;
   height: 40px;
 }
+
 .content-notes {
   padding: 10px;
   background-color: white;
@@ -158,9 +168,11 @@ header .material-icons{
 input.inputText{
   width:80% ;
   border: none;
-  height: 30px;
+  height: 40px;
   min-width: 100px;
   padding-left: 10px;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 20px;
 }
 div.select-color, div.select-color-hidden {
   display:flex;
@@ -183,13 +195,13 @@ div.select-color input{
       display: inline;
   }
 }
-@media(min-width: 560px){
+@media(min-width: 650px){
   .searcher-header{
     display: flex;
     visibility: visible;
   }
 }
-@media (min-width:768px){
+@media (min-width:785px){
   body {    
     grid-template-columns: 280px 1fr;
     grid-template-areas: "header header"
