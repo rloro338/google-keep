@@ -109,6 +109,14 @@ header .menuButton:hover{
   box-shadow: 2px 2px 5px gray;
   height: fit-content;
 }
+
+
+
+.delete-button{
+  display: none;
+  visibility: hidden;
+}
+
 .content-notes > p {
   font-family: 'Patrick Hand', cursive;
   font-size: 21px;

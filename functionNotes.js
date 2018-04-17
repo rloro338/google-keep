@@ -14,7 +14,6 @@ function behaviourSearchAndNewNote() {
     makeNewNote(input.value)
     hideColors(e)
     discheckRadioButtons()
-
   });
   content.addEventListener("click", hideColors, discheckRadioButtons);
   containerNotes.addEventListener("click", discheckRadioButtons);
@@ -24,10 +23,8 @@ function behaviourSearchAndNewNote() {
   searcher.addEventListener("input", () => {
     searchNotes(searcher.value);
   });
-
   searchButton.addEventListener("click", openSearcher);
   window.addEventListener("resize", closeSearcher);
-
 
   function checkInput() {
     var noSpacesRegExp = new RegExp('^[\\s]{0,}$');
@@ -77,20 +74,40 @@ function behaviourSearchAndNewNote() {
     return color;
   }
 
+  function deleteNote(e) {
+    var noteToRemove = e.target.parentNode.parentNode;
+    noteToRemove.remove();
+  }
+
   function makeNewNote(noteText) {
     var color = getRadioButtonColor();
-    var div = document.createElement("div");
+    var note = document.createElement("div");
     var p = document.createElement("p");
     var noteContent = document.createTextNode(noteText);
+    note.innerHTML = "<a href ='#' class='delete-button' id='delete-button'><i class='material-icons'>delete_forever</i></a>";
     p.appendChild(noteContent);
-    div.appendChild(p);
-    div.style.backgroundColor = color;
-    div.classList.add("content-notes");
-    containerNotes.appendChild(div);
+    p.classList.add('p-inside-note')
+    note.appendChild(p);
+    note.style.backgroundColor = color;
+    note.classList.add("content-notes");
+    note.addEventListener("mouseover", showDeleteButtonInNote);
+    note.addEventListener("mouseout", hideDeleteButtonInNote);
+    var deleteButton = note.getElementsByClassName('delete-button')[0];
+    deleteButton.addEventListener("click", deleteNote);
+    containerNotes.appendChild(note);
     newNoteButton.disabled = true;
     input.value = "";
   }
 
+  function showDeleteButtonInNote(e) {
+
+    this.firstChild.style.display = "block";
+    this.firstChild.style.visibility = "visible";
+  }
+  function hideDeleteButtonInNote(e) {
+    this.firstChild.style.display = "none";
+    this.firstChild.style.visibility = "hidden";
+  }
 
   function makeNewNoteWithIntro(e) {
     var key = e.keyCode;
