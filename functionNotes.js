@@ -42,7 +42,8 @@ function behaviourSearchAndNewNote() {
 
   function hideColors(e) {
     var targetClick = e.target.classList.value;
-    if ((targetClick == "content-notes-container") || targetClick == ("new-note-button") || targetClick == ("content")) {
+     
+    if (targetClick == ("content-notes-container" || "new-note-button" || "content")) {
       selectColor.classList.remove("select-color");
       selectColor.classList.add("select-color-hidden");
       input.value = "";
@@ -84,7 +85,7 @@ function behaviourSearchAndNewNote() {
     var p = document.createElement("p");
     var noteContent = document.createTextNode(noteText);
     note.innerHTML = "<div class='note-header'>" +
-      "<a href ='#' class='delete-button delete-button-hidden'>" +
+      "<a href ='#' class='delete-button'>" + /*cambiar aqui por delete-button si no funciona la transicion*/
       "<i class='material-icons'>delete_forever</i>" +
       "</a>" +
       "<input type='checkbox' name='checkDelete'></input>" +
@@ -104,13 +105,16 @@ function behaviourSearchAndNewNote() {
   }
 
   function showDeleteButtonInNote(e) {
-    this.firstChild.firstChild.classList.toggle("delete-button-shown");
-   }
-  function hideDeleteButtonInNote(e) {
-    this.firstChild.firstChild.classList.toggle("delete-button-shown");
-   }
 
-  function deleteNote(e,note) {
+    this.firstElementChild.classList.toggle('note-header-open');
+    this.firstChild.firstChild.classList.toggle("delete-button-shown");
+  }
+  function hideDeleteButtonInNote(e) {
+    this.firstElementChild.classList.toggle('note-header-open');
+    this.firstChild.firstChild.classList.toggle("delete-button-shown");
+  }
+
+  function deleteNote(e, note) {
     this.note = e.target.parentNode.parentNode.parentNode;
     this.note.remove();
   }
@@ -120,12 +124,12 @@ function behaviourSearchAndNewNote() {
     var arrayOfNotes = Array.from(notes);
     var markedNotes = arrayOfNotes.map((note) => {
 
-      if(note.firstElementChild.lastElementChild.checked){
+      if (note.firstElementChild.lastElementChild.checked) {
         note.remove();
       }
-     
+
     });
-    
+
 
   }
 
@@ -141,8 +145,8 @@ function behaviourSearchAndNewNote() {
     var arrayOfNotes = Array.from(notes);
     var regexp = new RegExp(textToSearch);
     arrayOfNotes.forEach((note) => {
-      var textContent = note.firstChild.textContent;
-      note.style.display = regexp.test(textContent) ? 'flex' : 'none';
+      var textContent = note.lastChild.textContent;
+      note.style.display = regexp.test(textContent) ? 'block' : 'none';
     });
   }
 

@@ -109,6 +109,7 @@ header .menuButton:hover{
   background-color: white;
   box-shadow: 2px 2px 5px gray;
   height: fit-content;
+  display:block;
 }
 
 .note-header{
@@ -116,25 +117,29 @@ header .menuButton:hover{
   flex-direction: row;
   justify-content: flex-end;
   height: 0;
-  transition: height 2s ease;
+  transition: height 1s ease;
+  overflow:hidden;
+  
 }
 
 .note-header-open{
   height: 30px;
-
+  display: flex;
+  transition: height 1s ease;
 }
 
-
-
 .delete-button{
-  display: none;
+  display: flex;
   visibility: hidden;
-  transition: height 2s ease;
+ 
 }
 
 .delete-button-shown{
-  display: block;
+  
+  display: flex;
   visibility: visible;
+ 
+ 
  
 }
 
