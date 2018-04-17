@@ -81,6 +81,7 @@ header .menuButton:hover{
   grid-template-columns: repeat(auto-fill,minmax(240px,1fr)) ;
   grid-gap: 5px;
   }
+
 .div-shadow-open {
   grid-area: section;
   display: grid;
@@ -110,11 +111,35 @@ header .menuButton:hover{
   height: fit-content;
 }
 
+.note-header{
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  height: 0;
+  transition: height 2s ease;
+}
+
+.note-header-open{
+  height: 30px;
+
+}
+
 
 
 .delete-button{
   display: none;
   visibility: hidden;
+  transition: height 2s ease;
+}
+
+.delete-button-shown{
+  display: block;
+  visibility: visible;
+ 
+}
+
+.delete-button>i{
+  color: black;
 }
 
 .content-notes > p {

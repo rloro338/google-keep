@@ -9,6 +9,7 @@ function behaviourSearchAndNewNote() {
   var searcher = document.getElementsByClassName("searcher-header")[0];
   var searchButton = document.getElementsByClassName("search-button")[0];
   var title = document.getElementsByClassName("title")[0];
+  var removeMarkNotesButton = document.getElementsByClassName('remove-marked-notes-button')[0];
 
   newNoteButton.addEventListener("click", (e) => {
     makeNewNote(input.value)
@@ -25,6 +26,7 @@ function behaviourSearchAndNewNote() {
   });
   searchButton.addEventListener("click", openSearcher);
   window.addEventListener("resize", closeSearcher);
+  removeMarkNotesButton.addEventListener("click", removeMarkedNotes);
 
   function checkInput() {
     var noSpacesRegExp = new RegExp('^[\\s]{0,}$');
@@ -74,17 +76,19 @@ function behaviourSearchAndNewNote() {
     return color;
   }
 
-  function deleteNote(e) {
-    var noteToRemove = e.target.parentNode.parentNode;
-    noteToRemove.remove();
-  }
+
 
   function makeNewNote(noteText) {
     var color = getRadioButtonColor();
     var note = document.createElement("div");
     var p = document.createElement("p");
     var noteContent = document.createTextNode(noteText);
-    note.innerHTML = "<a href ='#' class='delete-button' id='delete-button'><i class='material-icons'>delete_forever</i></a>";
+    note.innerHTML = "<div class='note-header'>" +
+      "<a href ='#' class='delete-button delete-button-hidden'>" +
+      "<i class='material-icons'>delete_forever</i>" +
+      "</a>" +
+      "<input type='checkbox' name='checkDelete'></input>" +
+      "</div>";
     p.appendChild(noteContent);
     p.classList.add('p-inside-note')
     note.appendChild(p);
@@ -100,13 +104,29 @@ function behaviourSearchAndNewNote() {
   }
 
   function showDeleteButtonInNote(e) {
-
-    this.firstChild.style.display = "block";
-    this.firstChild.style.visibility = "visible";
-  }
+    this.firstChild.firstChild.classList.toggle("delete-button-shown");
+   }
   function hideDeleteButtonInNote(e) {
-    this.firstChild.style.display = "none";
-    this.firstChild.style.visibility = "hidden";
+    this.firstChild.firstChild.classList.toggle("delete-button-shown");
+   }
+
+  function deleteNote(e,note) {
+    this.note = e.target.parentNode.parentNode.parentNode;
+    this.note.remove();
+  }
+
+  function removeMarkedNotes() {
+    var notes = document.getElementsByClassName('content-notes');
+    var arrayOfNotes = Array.from(notes);
+    var markedNotes = arrayOfNotes.map((note) => {
+
+      if(note.firstElementChild.lastElementChild.checked){
+        note.remove();
+      }
+     
+    });
+    
+
   }
 
   function makeNewNoteWithIntro(e) {
