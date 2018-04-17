@@ -84,15 +84,16 @@ function behaviourSearchAndNewNote() {
     var note = document.createElement("div");
     var p = document.createElement("p");
     var noteContent = document.createTextNode(noteText);
-    note.innerHTML = "<div class='note-header'>" +
-      "<a href ='#' class='delete-button'>" + /*cambiar aqui por delete-button si no funciona la transicion*/
-      "<i class='material-icons'>delete_forever</i>" +
-      "</a>" +
-      "<input type='checkbox' name='checkDelete'></input>" +
-      "</div>";
+    note.innerHTML = "<div class='note-footer'>" +
+                      "<a href ='#' class='delete-button'>" + /*cambiar aqui por delete-button si no funciona la transicion*/
+                        "<i class='material-icons'>delete_forever</i>" +
+                      "</a>" +
+                     "</div>"+
+                     "<input type='checkbox' class='check-delete' name='checkDelete'></input>" ;
     p.appendChild(noteContent);
     p.classList.add('p-inside-note')
     note.appendChild(p);
+    
     note.style.backgroundColor = color;
     note.classList.add("content-notes");
     note.addEventListener("mouseover", showDeleteButtonInNote);
@@ -105,14 +106,12 @@ function behaviourSearchAndNewNote() {
   }
 
   function showDeleteButtonInNote(e) {
-
-    this.firstElementChild.classList.toggle('note-header-open');
-    this.firstChild.firstChild.classList.toggle("delete-button-shown");
-  }
+    this.firstElementChild.classList.toggle('note-footer-open');
+      }
+      
   function hideDeleteButtonInNote(e) {
-    this.firstElementChild.classList.toggle('note-header-open');
-    this.firstChild.firstChild.classList.toggle("delete-button-shown");
-  }
+    this.firstElementChild.classList.toggle('note-footer-open');
+      }
 
   function deleteNote(e, note) {
     this.note = e.target.parentNode.parentNode.parentNode;
@@ -124,7 +123,7 @@ function behaviourSearchAndNewNote() {
     var arrayOfNotes = Array.from(notes);
     var markedNotes = arrayOfNotes.map((note) => {
 
-      if (note.firstElementChild.lastElementChild.checked) {
+      if (note.children[1].checked) {
         note.remove();
       }
 
