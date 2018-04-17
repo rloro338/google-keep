@@ -42,7 +42,7 @@ function behaviourSearchAndNewNote() {
 
   function hideColors(e) {
     var targetClick = e.target.classList.value;
-     
+
     if (targetClick == ("content-notes-container" || "new-note-button" || "content")) {
       selectColor.classList.remove("select-color");
       selectColor.classList.add("select-color-hidden");
@@ -85,15 +85,15 @@ function behaviourSearchAndNewNote() {
     var p = document.createElement("p");
     var noteContent = document.createTextNode(noteText);
     note.innerHTML = "<div class='note-footer'>" +
-                      "<a href ='#' class='delete-button'>" + /*cambiar aqui por delete-button si no funciona la transicion*/
-                        "<i class='material-icons'>delete_forever</i>" +
-                      "</a>" +
-                     "</div>"+
-                     "<input type='checkbox' class='check-delete' name='checkDelete'></input>" ;
+      "<a href ='#' class='delete-button'>" + /*cambiar aqui por delete-button si no funciona la transicion*/
+      "<i class='material-icons'>delete_forever</i>" +
+      "</a>" +
+      "</div>" +
+      "<input type='checkbox' class='check-delete' name='checkDelete'></input>";
     p.appendChild(noteContent);
     p.classList.add('p-inside-note')
     note.appendChild(p);
-    
+
     note.style.backgroundColor = color;
     note.classList.add("content-notes");
     note.addEventListener("mouseover", showDeleteButtonInNote);
@@ -107,28 +107,32 @@ function behaviourSearchAndNewNote() {
 
   function showDeleteButtonInNote(e) {
     this.firstElementChild.classList.toggle('note-footer-open');
-      }
-      
+  }
+
   function hideDeleteButtonInNote(e) {
     this.firstElementChild.classList.toggle('note-footer-open');
-      }
+  }
 
   function deleteNote(e, note) {
     this.note = e.target.parentNode.parentNode.parentNode;
     this.note.remove();
   }
 
-  function removeMarkedNotes() {
+  function getMarkedNotes() {
     var notes = document.getElementsByClassName('content-notes');
     var arrayOfNotes = Array.from(notes);
-    var markedNotes = arrayOfNotes.map((note) => {
-
+    var markedNotes = [];
+    arrayOfNotes.forEach((note) => {
       if (note.children[1].checked) {
-        note.remove();
+        markedNotes.push(note);
       }
-
     });
+    return markedNotes;
+  }
 
+  function removeMarkedNotes() {
+    var markedNotes = getMarkedNotes();
+    markedNotes.forEach((note) => note.remove());
 
   }
 

@@ -81,6 +81,7 @@ header .menuButton:hover{
   grid-template-columns: repeat(auto-fill,minmax(240px,1fr)) ;
   grid-gap: 5px;
   z-index:2;
+  
   }
 
 .div-shadow-open {
@@ -133,6 +134,8 @@ header .menuButton:hover{
 }
 .delete-button>i{
   color: black;
+  background-color: yellow;
+  border-radius: 20px;
 }
 .check-delete{
   position: absolute;
