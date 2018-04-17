@@ -10,22 +10,24 @@ function behaviourSearchAndNewNote() {
   var searchButton = document.getElementsByClassName("search-button")[0];
   var title = document.getElementsByClassName("title")[0];
 
-  newNoteButton.addEventListener("click", function (e) {
+  newNoteButton.addEventListener("click", (e) => {
     makeNewNote(input.value)
     hideColors(e)
     discheckRadioButtons()
+
   });
   content.addEventListener("click", hideColors, discheckRadioButtons);
   containerNotes.addEventListener("click", discheckRadioButtons);
   input.addEventListener("click", showColors);
   input.addEventListener("input", checkInput);
   input.addEventListener('keypress', makeNewNoteWithIntro);
-  searcher.addEventListener("input", function () {
-    searchNotes(searcher.value)
+  searcher.addEventListener("input", () => {
+    searchNotes(searcher.value);
   });
 
   searchButton.addEventListener("click", openSearcher);
   window.addEventListener("resize", closeSearcher);
+
 
   function checkInput() {
     var noSpacesRegExp = new RegExp('^[\\s]{0,}$');
@@ -72,7 +74,6 @@ function behaviourSearchAndNewNote() {
         break;
       }
     }
-
     return color;
   }
 
@@ -90,6 +91,7 @@ function behaviourSearchAndNewNote() {
     input.value = "";
   }
 
+
   function makeNewNoteWithIntro(e) {
     var key = e.keyCode;
     if (key == 13 && checkInput()) {
@@ -98,23 +100,15 @@ function behaviourSearchAndNewNote() {
   }
 
   function searchNotes(textToSearch) {
-    var i = 0;
-    do {
-      var notes = document.getElementsByClassName("content-notes");
-      var lengthNotes = notes.length;
-      var content = notes[i].firstChild.textContent;
-      var frase = content.slice(content.indexOf(textToSearch[0], textToSearch.length));
-      
-      if (content.search(textToSearch) == -1) {
-        notes[i].style.display = "none";
-      }
-      else {
-        notes[i].style.display = "flex";
-      }
-      i++;
-    } while (i < lengthNotes);
-
+    var notes = document.getElementsByClassName("content-notes");
+    var arrayOfNotes = Array.from(notes);
+    var regexp = new RegExp(textToSearch);
+    arrayOfNotes.forEach((note) => {
+      var textContent = note.firstChild.textContent;
+      note.style.display = regexp.test(textContent) ? 'flex' : 'none';
+    });
   }
+
   function openSearcher() {
     if (window.innerWidth < 650) {
       title.classList.toggle("title-hidden");
@@ -130,10 +124,8 @@ function behaviourSearchAndNewNote() {
       searcher.placeholder = "Busca lo que quieras";
     }
   }
+
 }
-
-
-
 
 
 
